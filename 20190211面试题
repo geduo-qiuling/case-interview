@@ -1,0 +1,38 @@
+(1).如何利用grep命令实现egrep命令中的＇或＇功能？（例如：在／etc/passwd中同时查找root用户和bin用户）
+	grep -e "^root" -e "^bin"
+(2).如何在查找文件或目录的同时，查询其拥有的权限、所属者和所属组，有几个命令可以做到？（例如：在根下查找全名为opt的文件或目录）
+	find / -name 'opt' -exec ls -ld {} \;
+	find / -name 'opt' | xargs ls -ld
+(3).用echo命令如何将一个正确输出变为错误输出并输入到一个文本中
+	echo 'hellow world' 2> 1.txt 1>&2
+(4).用echo命令如何将一个错误输出变为正确输出并输入到一个文件中
+	ls ttttttttttttt 1> 1.txt 2>&1
+(5).用echo命令输出本机的主机名，颜色为绿色
+	echo -e "\033[32m$(hostname)\033[0m"
+(6).如何将一列文本变为一行文本，有几个命令可以做到，有什么区别？
+	cat 1.txt | tr '\n' ' '
+	cat 1.txt | xargs -n100
+	paste -s -d " " 1.txt
+(7).如何将一行文本变为一列文本，有几个命令可以做到？
+	cat 1.txt | tr ' ' '\n'
+	cat 1.txt | xargs -n1
+(8).如何将一行或一列文本变成三列文本？
+	cat 1.txt | xargs -n3
+(9).如何利用seq命令输出数字１～１０范围内的基数和偶数?
+	seq 1 2 10
+	seq 2 2 10
+(10).如何利用seq命令动态指定起始位置和结束位置，并将其范围输出
+	seq ${变量}　${变量}　${变量}
+(11).vim中如何快速添加注释，且如何快速解开注释？
+	ctrl + v
+	大写Ｉ
+	插入后按两下ＥＳＣ
+(12).vim中且如何快速解开注释？
+	ctrl + v
+	小写d
+(13).vim中如何让光标随着鼠标点击移动？如何还原？
+	:set mouse=a
+	:set mouse=c
+(14).vim中如何查看制表符和换行符？
+	:set list
+	cat -A
