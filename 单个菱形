@@ -1,0 +1,36 @@
+func myTree(num int) string {
+	if num <= 1 {
+		num = 3
+	} else if num%2 == 0 {
+		num += 1
+	}
+
+	var finaStr = ""
+	var yinM = " "
+	var xiaM = "A"
+	sepe := num / 2
+
+	for i := 1; i <= num; i++ {
+		dir := 1
+		if i > sepe+1 {
+			dir = -1
+		}
+		inStar := (sepe - (i - 1)) * dir
+		for m := 0; m < inStar; m++ {
+			finaStr += yinM
+		}
+		for n := 0; n < sepe-inStar; n++ {
+			finaStr += xiaM
+		}
+		finaStr += xiaM
+		for n := 0; n < sepe-inStar; n++ {
+			finaStr += xiaM
+		}
+		for m := 0; m < inStar; m++ {
+			finaStr += yinM
+		}
+		finaStr += "\n"
+	}
+
+	return finaStr
+}
