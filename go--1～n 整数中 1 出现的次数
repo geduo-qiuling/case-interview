@@ -1,0 +1,9 @@
+func mySt(n int)int  {
+	reg:=regexp.MustCompile(`1`)
+	if n<=1 {
+		return n
+	}else {
+		return mySt(n-1) + len(reg.FindAllString(strconv.Itoa(n),-1))
+	}
+
+}
